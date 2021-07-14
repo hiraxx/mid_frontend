@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'mid-frontend',
+    title: 'Book Management',
     htmlAttrs: {
       lang: 'en'
     },
@@ -43,10 +43,43 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+
+    '@nuxtjs/auth-next'
   ],
 
+  router: {
+    middleware: ['auth']
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'access_token',
+          global: true,
+          type: 'bearer'
+        },
+        user: {
+          property: false,
+        },
+        endpoints: {
+          login: {url:'/api/login', method: 'post'},
+          logout: {url:'/api/logout', method: 'post'},
+          user: {url:'/api/user', method: 'get'}
+        }
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      home: '/dashboard'
+    }
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseUrl: 'https://lentrix.tk/corage'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
