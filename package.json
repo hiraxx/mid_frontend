@@ -15,5 +15,10 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7"
+<<<<<<< HEAD
   }
+=======
+  },
+  "devDependencies": {}
+>>>>>>> 37aa29d209a1e2a6df15d9a41f448f57faf407b2
 }
