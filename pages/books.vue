@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1> Books </h1>
        <NavBar/>
     <EditBookModal :book="selectedBook"/>
     <DeleteBookModal :book="selectedBook" @onDeleteEntry="getAll" />
